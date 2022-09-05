@@ -6,8 +6,6 @@ export interface ProductInput {
   price: number;
   soldout: "SOLDOUT" | "ONSALE";
   stores: StoreInput[];
-  // stores: Schema.Types.DocumentArray;
-  // stores: Types.DocumentArray<StoreInput>;
   inventory: number;
 }
 
@@ -29,6 +27,7 @@ const productSchema = new mongoose.Schema<ProductDocument>(
     name: { type: String, required: true },
     description: { type: String, required: false },
     price: { type: Number, required: false },
+    inventory:{type:Number,required:false},
     soldout: {
       type: String,
       enum: ["SOLDOUT", "ONSALE"],
